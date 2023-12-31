@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">L08-InAFile-2023</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_process">Process</string>
+    <string name="title_converter">Converter</string>
+    <string name="title_longlist">Long task</string>
+    <string name="title_history">History</string>
+    <string name="convert">Convert</string>
+    <string name="longlist">Write file</string>
+
+</resources>
