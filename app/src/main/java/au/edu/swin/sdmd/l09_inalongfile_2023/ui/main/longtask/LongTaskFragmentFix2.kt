@@ -33,9 +33,14 @@ class LongTaskFragmentFix2 : Fragment() {
         val bLong: Button = root.findViewById(R.id.bLong)
 
         // FIXED 2: code that uses the Observer
+        // the lambda is a call back that is invoked when LiveData's state is
+        // changed.
         val buttonObserver = Observer<Boolean> { state ->
             bLong.isEnabled = state
         }
+        // make (attach) buttonObserver as an observer of the buttonState (LiveData).
+        // viewLifecycleOwner: ensures that the observer is only called upon when
+        // this fragment is active (i.e. being visible to user)
         viewModel.buttonState.observe(viewLifecycleOwner, buttonObserver)
 
         bLong.setOnClickListener {
@@ -62,6 +67,8 @@ class LongTaskFragmentFix2 : Fragment() {
 //                bLong.isEnabled = true
 
                 // FIXED 2: code that uses the Observer (also uncomment other FIXED segments above)
+                // update LiveData' state, notifying all the attached observers (see above).
+                // Unlike FIXED 1 (which uses the Main thread), postValue() can be invoked on any thread (other than the main thread)
                 viewModel.buttonState.postValue(true)
             }
 
