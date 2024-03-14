@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'au.edu.swin.sdmd.l08_inafile_2023'
+    namespace 'au.edu.swin.sdmd.l09_inalongfile_2023'
     compileSdk 33
 
     defaultConfig {
-        applicationId "au.edu.swin.sdmd.l08_inafile_2023"
+        applicationId "au.edu.swin.sdmd.l09_inalongfile_2023"
         minSdk 27
         targetSdk 33
         versionCode 1

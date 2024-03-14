@@ -1,11 +1,11 @@
-package au.edu.swin.sdmd.l08_inafile_2023
+package au.edu.swin.sdmd.l09_inalongfile_2023
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import au.edu.swin.sdmd.l08_inafile_2023.ui.main.SectionsPagerAdapter
-import au.edu.swin.sdmd.l08_inafile_2023.databinding.ActivityMainBinding
+import au.edu.swin.sdmd.l09_inalongfile_2023.ui.main.SectionsPagerAdapter
+import au.edu.swin.sdmd.l09_inalongfile_2023.databinding.ActivityMainBinding
 import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {

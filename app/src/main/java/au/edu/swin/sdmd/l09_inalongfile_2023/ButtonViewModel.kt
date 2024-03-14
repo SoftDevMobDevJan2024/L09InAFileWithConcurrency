@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.l08_inafile_2023
+package au.edu.swin.sdmd.l09_inalongfile_2023
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

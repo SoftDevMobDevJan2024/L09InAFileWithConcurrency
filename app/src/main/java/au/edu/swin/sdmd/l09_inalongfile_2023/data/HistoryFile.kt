@@ -1,10 +1,10 @@
-package au.edu.swin.sdmd.l08_inafile_2023.data
+package au.edu.swin.sdmd.l09_inalongfile_2023.data
 
 import android.content.Context
 import java.io.*
 
 object HistoryFile {
-    private const val filename = "decimal_history"
+    const val filename = "decimal_history"
 
     fun appendInput(context: Context, sDecimal: String) {
         context.openFileOutput(filename, Context.MODE_APPEND).use {

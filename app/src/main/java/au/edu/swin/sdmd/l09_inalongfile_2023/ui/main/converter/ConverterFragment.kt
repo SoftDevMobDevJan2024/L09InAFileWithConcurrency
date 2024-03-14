@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.l08_inafile_2023.ui.main.converter
+package au.edu.swin.sdmd.l09_inalongfile_2023.ui.main.converter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import au.edu.swin.sdmd.l08_inafile_2023.R
-import au.edu.swin.sdmd.l08_inafile_2023.data.HistoryFile
-import au.edu.swin.sdmd.l08_inafile_2023.databinding.FragmentMainBinding
+import au.edu.swin.sdmd.l09_inalongfile_2023.R
+import au.edu.swin.sdmd.l09_inalongfile_2023.data.HistoryFile
 
 class ConverterFragment : Fragment() {
 

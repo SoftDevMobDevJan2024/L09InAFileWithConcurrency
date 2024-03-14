@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.l08_inafile_2023.ui.main.history
+package au.edu.swin.sdmd.l09_inalongfile_2023.ui.main.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import au.edu.swin.sdmd.l08_inafile_2023.R
-import au.edu.swin.sdmd.l08_inafile_2023.data.HistoryFile
+import au.edu.swin.sdmd.l09_inalongfile_2023.R
+import au.edu.swin.sdmd.l09_inalongfile_2023.data.HistoryFile
 
 class HistoryFragment : Fragment() {
 

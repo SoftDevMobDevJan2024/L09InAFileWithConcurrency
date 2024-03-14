@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.l08_inafile_2023.ui.main.process
+package au.edu.swin.sdmd.l09_inalongfile_2023.ui.main.process
 
 import android.os.Bundle
 import android.text.Html
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import au.edu.swin.sdmd.l08_inafile_2023.R
+import au.edu.swin.sdmd.l09_inalongfile_2023.R
 
 class ProcessFragment : Fragment() {
 

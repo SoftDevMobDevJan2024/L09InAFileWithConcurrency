@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">L08-InAFile-2023</string>
+    <string name="app_name">L09-InALongFile-2023</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_process">Process</string>
     <string name="title_converter">Converter</string>

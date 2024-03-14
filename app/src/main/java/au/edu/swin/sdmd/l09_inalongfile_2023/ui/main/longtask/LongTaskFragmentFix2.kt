@@ -1,26 +1,24 @@
-package au.edu.swin.sdmd.l08_inafile_2023.ui.main.longtask
+package au.edu.swin.sdmd.l09_inalongfile_2023.ui.main.longtask
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import au.edu.swin.sdmd.l08_inafile_2023.ButtonViewModel
-import au.edu.swin.sdmd.l08_inafile_2023.R
-import au.edu.swin.sdmd.l08_inafile_2023.data.LoooooongFile
+import au.edu.swin.sdmd.l09_inalongfile_2023.ButtonViewModel
+import au.edu.swin.sdmd.l09_inalongfile_2023.R
+import au.edu.swin.sdmd.l09_inalongfile_2023.data.LoooooongFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import androidx.fragment.app.activityViewModels
 
-class LongTaskFragment : Fragment() {
+class LongTaskFragmentFix2 : Fragment() {
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.IO + job)
     private val viewModel: ButtonViewModel by activityViewModels()
@@ -34,14 +32,17 @@ class LongTaskFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_longtask, container, false)
         val bLong: Button = root.findViewById(R.id.bLong)
 
-        /*val buttonObserver = Observer<Boolean> { state ->
+        // FIXED 2: code that uses the Observer
+        val buttonObserver = Observer<Boolean> { state ->
             bLong.isEnabled = state
         }
-        viewModel.buttonState.observe(viewLifecycleOwner, buttonObserver)*/
+        viewModel.buttonState.observe(viewLifecycleOwner, buttonObserver)
 
         bLong.setOnClickListener {
             bLong.isEnabled = false
-            //viewModel.buttonState.value = false
+            // FIXED 2: code that uses the Observer
+            viewModel.buttonState.value = false
+
             val cgGroup: RadioGroup = root.findViewById(R.id.radioGroup)
             val listLength = when (cgGroup.checkedRadioButtonId) {
                 R.id.shortList -> 1000
@@ -50,11 +51,20 @@ class LongTaskFragment : Fragment() {
                 else -> 1
             }
             scope.launch {
+                // long-running task
                 writeFile(context, listLength)
-                bLong.isEnabled = true
-                //viewModel.buttonState.postValue(true)
+                /*
+                * FATAL EXCEPTION: DefaultDispatcher-worker-1
+                * Process: au.edu.swin.sdmd.l09_inalongfile_2023,
+                *          PID: 5044 android.view.ViewRootImpl$CalledFromWrongThreadException:
+                *           Only the original thread that created a view hierarchy can touch its views.
+                * */
+//                bLong.isEnabled = true
 
+                // FIXED 2: code that uses the Observer (also uncomment other FIXED segments above)
+                viewModel.buttonState.postValue(true)
             }
+
         }
         return root
     }
@@ -91,8 +101,8 @@ class LongTaskFragment : Fragment() {
          * number.
          */
         @JvmStatic
-        fun newInstance(sectionNumber: Int): LongTaskFragment {
-            return LongTaskFragment()
+        fun newInstance(sectionNumber: Int): LongTaskFragmentFix2 {
+            return LongTaskFragmentFix2()
         }
     }
 }
